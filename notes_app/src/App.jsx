@@ -4,7 +4,12 @@ import ModalComponent from "./components/ModalComponent";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  // const [noteData, setNoteData] = useState({});
+  const [noteData, setNoteData] = useState({});
+  const allNotes = [];
+  const setData = (data) => {
+    setNoteData(data);
+    allNotes.push(noteData);
+  };
 
   return (
     <div className="min-h-screen flex flex-col justify-start bg-waikawa-gray-700">
@@ -12,7 +17,11 @@ function App() {
         Notes
       </div>
       <AddNote openModal={() => setIsOpen(true)} />
-      <ModalComponent open={isOpen} onClose={() => setIsOpen(false)} />
+      <ModalComponent
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        setData={setData}
+      />
     </div>
   );
 }

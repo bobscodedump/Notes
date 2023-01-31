@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-function ModalComponent({ open, onClose }) {
+function ModalComponent({ open, onClose, setData }) {
   if (!open) return null;
 
   const [inputs, setInputs] = useState({
@@ -54,6 +54,14 @@ function ModalComponent({ open, onClose }) {
             />
           </form>
         </section>
+        <div className="flex justify-center">
+          <button
+            className="bg-waikawa-gray-200 text-2xl rounded-md p-1 font-sans hover:bg-waikawa-gray-50 mt-2 shadow-xl"
+            onClick={() => setData(inputs)}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -4,11 +4,11 @@ import ModalComponent from "./components/ModalComponent";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [noteData, setNoteData] = useState({});
-  const allNotes = [];
+  const [noteArray, setNoteArray] = useState([]);
   const setData = (data) => {
-    setNoteData(data);
-    allNotes.push(noteData);
+    noteArray.push(data);
+    setNoteArray(noteArray);
+    console.log(noteArray);
   };
 
   return (
@@ -22,6 +22,14 @@ function App() {
         onClose={() => setIsOpen(false)}
         setData={setData}
       />
+      <div className="flex justify-center flex-auto mx-auto mt-10 gap-4">
+        {noteArray.map((obj) => (
+          <div className="bg-emerald-300 m-10 p-3 rounded-md">
+            <h1>{obj.description}</h1>
+            <p>{obj.note}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

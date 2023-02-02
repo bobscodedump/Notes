@@ -17,9 +17,14 @@ function ModalComponent({ open, onClose, setData }) {
     });
   };
 
+  const onSubmit = () => {
+    setData(inputs);
+    onClose();
+  };
+
   return (
     <div className="overlay fixed w-full h-full bg-waikawa-gray-50 bg-opacity-50 flex justify-center pt-12">
-      <div className="modalContainer bg-waikawa-gray-800 max-w-4xl w-full fixed max-h-5xl h-1/2 m-auto shadow-2xl mt-12">
+      <div className="modalContainer bg-waikawa-gray-800 max-w-4xl w-full fixed m-auto shadow-2xl mt-12">
         <div className="modalHeader flex justify-end">
           <p className="closeBtn p-2 px-3 font-bold text-3xl" onClick={onClose}>
             X
@@ -56,8 +61,8 @@ function ModalComponent({ open, onClose, setData }) {
         </section>
         <div className="flex justify-center">
           <button
-            className="bg-waikawa-gray-200 text-2xl rounded-md p-1 font-sans hover:bg-waikawa-gray-50 mt-2 shadow-xl"
-            onClick={() => setData(inputs)}
+            className="bg-waikawa-gray-200 text-2xl rounded-md p-1 font-sans hover:bg-waikawa-gray-50 m-2 mb-4 shadow-xl"
+            onClick={() => onSubmit()}
           >
             Submit
           </button>

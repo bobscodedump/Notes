@@ -22,11 +22,11 @@ function App() {
         onClose={() => setIsOpen(false)}
         setData={setData}
       />
-      <div className="flex justify-center flex-auto mx-auto mt-10 gap-4">
+      <div className="grid grid-cols-2 justify-center mx-auto mt-10 gap-4">
         {noteArray.map((obj) => (
           <div className="bg-emerald-300 m-10 p-3 rounded-md">
-            <h1>{obj.description}</h1>
-            <p>{obj.note}</p>
+            <h1 className="break-words">{obj.description}</h1>
+            <p className="break-words">{obj.note}</p>
           </div>
         ))}
       </div>
